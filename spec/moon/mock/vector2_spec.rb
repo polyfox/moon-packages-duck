@@ -38,28 +38,99 @@ describe Moon::Vector2 do
   end
 
   context '#+' do
-    it 'mathematically adds a number to the vector' do
+    it 'mathematically adds given a number' do
       v = described_class.new(1, 2)
       result = v + 1
       expect(result.x).to eq(2)
       expect(result.y).to eq(3)
     end
 
-    it 'mathematically adds an array of numbers to the vector' do
+    it 'mathematically adds given an array of numbers' do
       v = described_class.new(1, 2)
       result = v + [1, 2]
+      expect(result.x).to eq(2)
+      expect(result.y).to eq(4)
+    end
+
+    it 'mathematically adds another vector' do
+      v = described_class.new(1, 2)
+      v2 = described_class.new(1, 2)
+      result = v + v2
       expect(result.x).to eq(2)
       expect(result.y).to eq(4)
     end
   end
 
   context '#-' do
+    it 'mathematically subtracts given a number' do
+      v = described_class.new(1, 2)
+      result = v - 1
+      expect(result.x).to eq(0)
+      expect(result.y).to eq(1)
+    end
+
+    it 'mathematically subtracts given an array of numbers' do
+      v = described_class.new(1, 1)
+      result = v - [1, 2]
+      expect(result.x).to eq(0)
+      expect(result.y).to eq(-1)
+    end
+
+    it 'mathematically subtracts given another vector' do
+      v = described_class.new(4, 3)
+      v2 = described_class.new(1, 2)
+      result = v - v2
+      expect(result.x).to eq(3)
+      expect(result.y).to eq(1)
+    end
   end
 
   context '#*' do
+    it 'mathematically multiplies given a number' do
+      v = described_class.new(1, 2)
+      result = v * 4
+      expect(result.x).to eq(4)
+      expect(result.y).to eq(8)
+    end
+
+    it 'mathematically multiplies given an array of numbers' do
+      v = described_class.new(1, 3)
+      result = v * [2, 3]
+      expect(result.x).to eq(2)
+      expect(result.y).to eq(9)
+    end
+
+    it 'mathematically multiplies given another vector' do
+      v = described_class.new(4, 3)
+      v2 = described_class.new(1, 2)
+      result = v * v2
+      expect(result.x).to eq(4)
+      expect(result.y).to eq(6)
+    end
   end
 
   context '#/' do
+    it 'mathematically divides given a number' do
+      v = described_class.new(9, 6)
+      result = v / 3
+      expect(result.x).to eq(3)
+      expect(result.y).to eq(2)
+    end
+
+    it 'mathematically divides given an array of numbers' do
+      v = described_class.new(6, 8)
+      result = v / [3, 2]
+      expect(result.x).to eq(2)
+      expect(result.y).to eq(4)
+    end
+
+    it 'mathematically divides given another vector' do
+      v = described_class.new(8, 12)
+      v2 = described_class.new(4, 3)
+      result = v / v2
+      expect(result.x).to eq(2)
+      expect(result.y).to eq(4)
+    end
   end
 
   context '#[]' do
