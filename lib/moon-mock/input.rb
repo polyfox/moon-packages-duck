@@ -6,15 +6,18 @@ module Moon
       attr_accessor :position
       attr_reader :engine
 
+      # @param [Moon::Engine] engine
       def initialize(engine)
         @engine = engine
         @position = Vector2.new
       end
 
+      # @return [Float] x
       def x
         position.x
       end
 
+      # @return [Float] y
       def y
         position.y
       end

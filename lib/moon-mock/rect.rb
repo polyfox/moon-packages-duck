@@ -8,12 +8,22 @@ module Moon
       end
     end
 
+    # @param [Numeric] x
+    # @param [Numeric] y
+    # @param [Numeric] w
+    # @param [Numeric] h
     def initialize(x, y, w, h, &block)
       set(x, y, w, h)
     end
 
+    # @param [Numeric] x
+    # @param [Numeric] y
+    # @param [Numeric] w
+    # @param [Numeric] h
+    # @return [self]
     def set(x, y, w, h)
       self.x, self.y, self.w, self.h = x, y, w, h
+      self
     end
   end
 end

@@ -7,6 +7,10 @@ module Moon
     attr_reader :opacity
     attr_reader :angle
 
+    # @param [String, Texture] o  texture capable object
+    #                             if given a String, it will treat it as a
+    #                             filename, otherwise its a Texture
+    # @raise TypeError if not given a String or Texture
     def initialize(o)
       case o
       when String
@@ -22,6 +26,10 @@ module Moon
       @clip_rect = Rect.new(0, 0, 0, 0)
     end
 
+    # @param [Float] x
+    # @param [Float] y
+    # @param [Float] z
+    # @param [Hash<Symbol, Object>] options
     def render(x, y, z, options = {})
       puts "#{self}#render(#{x}, #{y}, #{z}, #{options})"
     end
