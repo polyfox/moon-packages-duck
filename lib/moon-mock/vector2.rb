@@ -57,26 +57,10 @@ module Moon
     end
 
     def self.extract(obj)
-      case obj
-      when Numeric
-        return obj, obj, obj
-      when Vector2
-        return *obj
-      when Array
-        case obj.size
-        when 1
-          x, y = *obj.first
-        when 2
-          x, y = *obj
-        else
-          raise ArgumentError, 'expected Array of size 1 or 2'
-        end
-        return x, y
-      when Hash
-        return obj.fetch(:x), obj.fetch(:y)
+      if obj.is_a?(Array)
+        new(*obj)
       else
-        raise TypeError,
-              'wrong argument type (expected Array, Hash, Numeric or Vector2)'
+        new(obj).to_a
       end
     end
 

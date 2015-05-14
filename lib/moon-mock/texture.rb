@@ -1,18 +1,14 @@
 module Moon
   class Texture
+    attr_accessor :w
+    attr_accessor :h
+
     def initialize(filename)
       @filename = filename
+      @w, @h = 32, 32
       unless File.exist?(@filename)
         raise ScriptError, "file #{filename} does not exist"
       end
-    end
-
-    def w
-      32
-    end
-
-    def h
-      32
     end
   end
 end

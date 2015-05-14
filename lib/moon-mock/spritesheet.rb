@@ -1,5 +1,6 @@
 module Moon
   class Spritesheet
+    attr_reader :texture
     attr_reader :cell_w
     attr_reader :cell_h
 

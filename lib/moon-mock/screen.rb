@@ -1,11 +1,11 @@
 module Moon
   class Screen
-    def w
-      800
-    end
+    attr_accessor :w
+    attr_accessor :h
 
-    def h
-      600
+    def initialize(window)
+      @w, @h = 800, 600
+      @window = window
     end
   end
 end

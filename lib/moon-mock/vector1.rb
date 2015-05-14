@@ -7,8 +7,12 @@ module Moon
       set(x)
     end
 
+    def -@
+      dup.tap { |o| o.x = -@x }
+    end
+
     def set(x)
-      @x = x
+      @x = x.to_f
     end
 
     def to_i

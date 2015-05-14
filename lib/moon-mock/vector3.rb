@@ -24,7 +24,7 @@ module Moon
         result = []
         args.each do |a|
           case a
-          when Vector1, Nnumeric
+          when Vector1, Numeric
             result << a.to_f
           when Vector3, Vector2, Array
             result.concat(a.to_a)
@@ -33,6 +33,7 @@ module Moon
           end
           break if result.size >= 3
         end
+        result *= 3 if result.size == 1
         self.x, self.y, self.z, = *result.map(&:to_f)
       else
         self.x, self.y, self.z = 0.0, 0.0, 0.0
@@ -64,39 +65,10 @@ module Moon
     end
 
     def self.extract(obj)
-      case obj
-      when Numeric
-        return obj, obj, obj
-      when Vector3
-        return *obj
-      when Array
-        case obj.size
-        when 1
-          x, y, z = *obj.first
-        when 2
-          params = []
-          for item in obj
-            case item
-            when Numeric
-              params << item
-            when Vector2
-              params.concat(obj.to_a)
-            else
-              raise ArgumentError, 'expected Array of size 1, 2, or 3'
-            end
-          end
-          x, y, z = *params
-        when 3
-          x, y, z = *obj
-        else
-          raise
-        end
-        return x, y, z
-      when Hash
-        return obj.fetch(:x), obj.fetch(:y), obj.fetch(:z)
+      if obj.is_a?(Array)
+        new(*obj)
       else
-        raise TypeError,
-              'wrong argument type (expected Array, Hash, Numeric or Vector3)'
+        new(obj).to_a
       end
     end
 

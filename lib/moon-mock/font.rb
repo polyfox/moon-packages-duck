@@ -1,3 +1,5 @@
+require 'moon-mock/vector4'
+
 module Moon
   class Font
     attr_reader :size
