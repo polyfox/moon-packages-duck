@@ -1,11 +1,11 @@
 module Moon
   class Sprite
     attr_reader :texture
-    attr_reader :clip_rect
-    attr_reader :ox
-    attr_reader :oy
-    attr_reader :opacity
-    attr_reader :angle
+    attr_accessor :clip_rect
+    attr_accessor :ox
+    attr_accessor :oy
+    attr_accessor :opacity
+    attr_accessor :angle
 
     # @param [String, Texture] o  texture capable object
     #                             if given a String, it will treat it as a
@@ -32,26 +32,6 @@ module Moon
     # @param [Hash<Symbol, Object>] options
     def render(x, y, z, options = {})
       puts "#{self}#render(#{x}, #{y}, #{z}, #{options})"
-    end
-
-    def clip_rect=(rect)
-      @clip_rect = rect
-    end
-
-    def ox=(n)
-      @ox = n
-    end
-
-    def oy=(n)
-      @oy = n
-    end
-
-    def opacity=(n)
-      @opacity = n
-    end
-
-    def angle=(n)
-      @angle = n
     end
   end
 end
