@@ -1,0 +1,7 @@
+---
+name: Duck Typing
+author: IceDragon200 (Corey Powell) (mistdragon100@gmail.com)
+description: Duck typing package
+require:
+deps:
+- data_model
