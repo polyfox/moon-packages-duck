@@ -13,3 +13,5 @@ require 'moon-mock/spritesheet'
 require 'moon-mock/font'
 
 require 'moon-mock/input'
+
+require 'moon-mock/engine'
