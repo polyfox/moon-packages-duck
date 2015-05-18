@@ -25,5 +25,10 @@ module Moon
       self.x, self.y, self.w, self.h = x, y, w, h
       self
     end
+
+    # @return [Array<Integer>]
+    def to_a
+      [x, y, w, h]
+    end
   end
 end
