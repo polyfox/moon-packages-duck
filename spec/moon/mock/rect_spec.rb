@@ -11,4 +11,11 @@ describe Moon::Rect do
       expect(rect.h).to eq(4)
     end
   end
+
+  context '#to_a' do
+    it 'returns an array' do
+      rect = described_class.new(1, 2, 3, 4)
+      expect(rect.to_a).to eq([1, 2, 3, 4])
+    end
+  end
 end
