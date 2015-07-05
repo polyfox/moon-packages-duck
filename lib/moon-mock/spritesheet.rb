@@ -1,8 +1,8 @@
 module Moon
   class Spritesheet
     attr_reader :texture
-    attr_reader :cell_w
-    attr_reader :cell_h
+    attr_reader :w
+    attr_reader :h
 
     # @param [String, Texture] o  texture capable object
     #                             if given a String, it will treat it as a
@@ -11,8 +11,8 @@ module Moon
     # @param [Integer] ch  cell height
     # @raise TypeError if not given a String or Texture
     def initialize(o, cw, ch)
-      @cell_w = cw
-      @cell_h = ch
+      @w = cw
+      @h = ch
       case o
       when String
         @filename = o
