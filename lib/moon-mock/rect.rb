@@ -12,7 +12,7 @@ module Moon
     # @param [Numeric] y
     # @param [Numeric] w
     # @param [Numeric] h
-    def initialize(x, y, w, h, &block)
+    def initialize(x = 0, y = 0, w = 0, h = 0, &block)
       set(x, y, w, h)
     end
 
@@ -26,9 +26,19 @@ module Moon
       self
     end
 
+    # @return [self]
+    def clear
+      set 0, 0, 0, 0
+    end
+
     # @return [Array<Integer>]
     def to_a
       [x, y, w, h]
+    end
+
+    # @return [String]
+    def to_s
+      "#{x},#{y},#{w},#{h}"
     end
   end
 end

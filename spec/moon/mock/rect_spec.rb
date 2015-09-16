@@ -12,10 +12,25 @@ describe Moon::Rect do
     end
   end
 
+  context '#clear' do
+    it 'resets the properties to 0' do
+      rect = described_class.new(1, 2, 3, 4)
+      rect.clear
+      expect(rect.to_a).to eq([0, 0, 0, 0])
+    end
+  end
+
   context '#to_a' do
-    it 'returns an array' do
+    it 'returns an Array' do
       rect = described_class.new(1, 2, 3, 4)
       expect(rect.to_a).to eq([1, 2, 3, 4])
+    end
+  end
+
+  context '#to_s' do
+    it 'returns a String' do
+      rect = described_class.new(1, 2, 3, 4)
+      expect(rect.to_s).to eq("1,2,3,4")
     end
   end
 end
