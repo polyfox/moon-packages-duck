@@ -40,5 +40,18 @@ module Moon
     def to_s
       "#{x},#{y},#{w},#{h}"
     end
+
+    # Compares the Rect against another object, if the other object is a Rect,
+    # it will compare their properties, else the result is always false.
+    #
+    # @param [Object] other
+    # @return [Boolean]
+    def ==(other)
+      if other.is_a?(Moon::Rect)
+        x == other.x && y == other.y && w == other.w && h == other.h
+      else
+        false
+      end
+    end
   end
 end

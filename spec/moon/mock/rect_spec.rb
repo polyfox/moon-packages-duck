@@ -33,4 +33,18 @@ describe Moon::Rect do
       expect(rect.to_s).to eq("1,2,3,4")
     end
   end
+
+  context '#==' do
+    it 'can be checked for equality' do
+      a = described_class.new(1, 2, 3, 4)
+      b = described_class.new(2, 2, 3, 4)
+
+      expect(a).to eq(a)
+      expect(b).to eq(b)
+
+      expect(a).not_to eq(b)
+      b.x = 1
+      expect(a).to eq(b)
+    end
+  end
 end
