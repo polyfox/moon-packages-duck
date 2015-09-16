@@ -1,5 +1,7 @@
 module Moon
   class Vector3
+    include Comparable
+
     attr_accessor :x
     attr_accessor :y
     attr_accessor :z
@@ -17,6 +19,12 @@ module Moon
 
     def to_a
       return x, y, z
+    end
+
+    # @param [Object] other
+    # @return [Integer]
+    def <=>(other)
+      [x, y, z] <=> Vector3.extract(other)
     end
 
     def set(*args, &block)

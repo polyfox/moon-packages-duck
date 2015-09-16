@@ -1,10 +1,18 @@
 # Duck typing
 module Moon
   class Vector1
+    include Comparable
+
     attr_accessor :x
 
     def initialize(x = 0)
       set(x)
+    end
+
+    # @param [Object] other
+    # @return [Integer]
+    def <=>(other)
+      x <=> other.to_f
     end
 
     def -@

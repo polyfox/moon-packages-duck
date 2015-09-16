@@ -1,11 +1,19 @@
 # Duck typing
 module Moon
   class Vector2
+    include Comparable
+
     attr_accessor :x
     attr_accessor :y
 
     def initialize(*args, &block)
       set(*args, &block)
+    end
+
+    # @param [Object] other
+    # @return [Integer]
+    def <=>(other)
+      [x, y] <=> Vector2.extract(other)
     end
 
     def to_a
