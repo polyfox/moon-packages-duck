@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.description = 'Package for loading Tiled map data.'
   s.homepage    = 'https://github.com/polyfox/moon-packages-mock'
   s.email       = 'mistdragon100@gmail.com'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.platform    = Gem::Platform::RUBY
   s.date        = Time.now.to_date.to_s
   s.license     = 'MIT'
